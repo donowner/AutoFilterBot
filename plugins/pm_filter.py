@@ -357,12 +357,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                await client.send_cached_media(
+                lodu = await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
+                await asyncio.sleep(300)
+                await lodu.delete()
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
@@ -393,12 +395,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         await query.answer()
-        await client.send_cached_media(
+        loda=await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
             protect_content=True if ident == 'checksubp' else False
         )
+        await asyncio.sleep(300)
+        await loda.delete()
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
@@ -638,7 +642,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", url=f"https://t.me/{temp.U_NAME}?start={pre}_{file.file_id}",
+                    text=f"[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))}", url=f"https://t.me/{temp.U_NAME}?start={pre}_{file.file_id}",
                 ),
             ]
             for file in files
@@ -647,7 +651,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{file.file_name}",
+                    text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))}",
                     url=f"https://t.me/{temp.U_NAME}?start={pre}_{file.file_id}",
                 ),
                 InlineKeyboardButton(
@@ -658,11 +662,6 @@ async def auto_filter(client, msg, spoll=False):
             for file in files
         ]
 
-    btn.insert(0,
-        [
-            InlineKeyboardButton("OUR Channel", url="https://t.me/MOVIES_X_STORE"),
-        ]
-    )
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"

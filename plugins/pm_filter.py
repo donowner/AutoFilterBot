@@ -113,6 +113,10 @@ async def next_page(bot, query):
     except MessageNotModified:
         pass
     await query.answer()
+    await asyncio.sleep(600)
+    await msg.delete()
+
+
 
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
@@ -363,8 +367,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
+                kun = await lodu.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\nTʜɪs Mᴏᴠɪᴇ Fɪʟᴇ/Vɪᴅᴇᴏ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ<b> 5 ᴍɪɴs</b>Pʟᴇᴀsᴇ ғᴏʀᴡᴀʀᴅ ᴛʜɪs Fɪʟᴇ/Vɪᴅᴇᴏ ᴛᴏ ʏᴏᴜʀ Sᴀᴠᴇᴅ Mᴇssᴀɢᴇs ᴀɴᴅ Sᴛᴀʀᴛ Dᴏᴡɴʟᴏᴀᴅ ᴛʜᴇʀᴇ",quote=True)
+                sedd=await lodu.reply ("Yᴏᴜ Cᴀɴ Fᴏʀᴡᴀʀᴅ Tʜɪs Fɪʟᴇ Tᴏ [Fɪʟᴇ Tᴏ Lɪɴᴋ Bᴏᴛ](https://t.me/File_To_Link_share_bot) Fᴏʀ Fᴀsᴛ Dᴏᴡɴʟᴏᴀᴅɪɴɢ Oʀ Oɴʟɪɴᴇ Sᴛʀᴇᴀᴍɪɴɢ")
                 await asyncio.sleep(300)
                 await lodu.delete()
+                await kun.edit_text("<b>Successfully deleted!!!\n Search Again ")
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
@@ -401,8 +408,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             caption=f_caption,
             protect_content=True if ident == 'checksubp' else False
         )
+        tun = await loda.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\nTʜɪs Mᴏᴠɪᴇ Fɪʟᴇ/Vɪᴅᴇᴏ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ<b> 5 ᴍɪɴs</b>Pʟᴇᴀsᴇ ғᴏʀᴡᴀʀᴅ ᴛʜɪs Fɪʟᴇ/Vɪᴅᴇᴏ ᴛᴏ ʏᴏᴜʀ Sᴀᴠᴇᴅ Mᴇssᴀɢᴇs ᴀɴᴅ Sᴛᴀʀᴛ Dᴏᴡɴʟᴏᴀᴅ ᴛʜᴇʀᴇ",quote=True)
+        sedd=await loda.reply ("Yᴏᴜ Cᴀɴ Fᴏʀᴡᴀʀᴅ Tʜɪs Fɪʟᴇ Tᴏ [Fɪʟᴇ Tᴏ Lɪɴᴋ Bᴏᴛ](https://t.me/File_To_Link_share_bot) Fᴏʀ Fᴀsᴛ Dᴏᴡɴʟᴏᴀᴅɪɴɢ Oʀ Oɴʟɪɴᴇ Sᴛʀᴇᴀᴍɪɴɢ")
         await asyncio.sleep(300)
         await loda.delete()
+        await tun.edit_text("<b>Successfully deleted!!!\n If you Want Search Again ")
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":

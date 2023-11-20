@@ -33,7 +33,9 @@ SPELL_CHECK = {}
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
-        await auto_filter(client, message)
+        nani=await auto_filter(client, message)
+        await asyncio.sleep(6)
+        await msg.delete()
 
 
 @Client.on_callback_query(filters.regex(r"^next"))

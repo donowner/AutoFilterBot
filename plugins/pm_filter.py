@@ -29,7 +29,7 @@ BUTTONS = {}
 SPELL_CHECK = {}
 
 
-@Client.on_message(filters.group & filters.text & filters.incoming)
+@Client.on_message((filters.group | filters.private) & filters.text & filters.incoming)
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
@@ -670,12 +670,7 @@ async def auto_filter(client, msg, spoll=False):
 
     btn.insert(0,
         [
-            InlineKeyboardButton("Bot Update Channel", url="https://t.me/sid_botz"),
-        ]
-    )
-    btn.insert(1,
-        [
-            InlineKeyboardButton(" Main Channel", url="https://t.me/movies_x_store"),
+            InlineKeyboardButton("OUR Channel", url="https://t.me/MOVIES_X_STORE"),
         ]
     )
 
@@ -753,7 +748,7 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("<b>I couldn't find anything in than name.\n\n<a href='https://t.me/Group_Linkzzzz'>Check in our other groups</a></b>")
+        k = await msg.reply("<b>I couldn't find anything in than name.\n\n<a href='https://t.me/movie_without_verify'>Check in our other groups</a></b>")
         await asyncio.sleep(8)
         await k.delete()
         return

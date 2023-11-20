@@ -40,8 +40,8 @@ auth_channel = environ.get('AUTH_CHANNEL', '')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 # Set to False inside the bracket if you don't want to use Request Channel else set it to Channel ID
 REQ_CHANNEL = environ.get("REQ_CHANNEL", '-1001935365147')
-CHNL_LNK = environ.get("CHNL_LNL", '-1001935365147')
-GRP_LNK = environ.get("GRP_LNK", '-1001935365147')
+CHNL_LNK = environ.get("CHNL_LNL", 'https://t.me/movies_x_store')
+GRP_LNK = environ.get("GRP_LNK", 'https://t.me/+wsS9EopG7DE0MDBl')
 REQ_CHANNEL = int(REQ_CHANNEL) if REQ_CHANNEL and id_pattern.search(REQ_CHANNEL) else False
 JOIN_REQS_DB = environ.get("JOIN_REQS_DB", DATABASE_URI)
 

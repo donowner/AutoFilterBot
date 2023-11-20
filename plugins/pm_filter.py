@@ -63,7 +63,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", url=f"https://t.me/{temp.U_NAME}?start=files_{file.file_id}"
+                    text=f"[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))}", url=f"https://t.me/{temp.U_NAME}?start=files_{file.file_id}"
                 ),
             ]
             for file in files
@@ -72,7 +72,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{file.file_name}", url=f"https://t.me/{temp.U_NAME}?start=files_{file.file_id}"
+                    text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))}", url=f"https://t.me/{temp.U_NAME}?start=files_{file.file_id}"
                 ),
                 InlineKeyboardButton(
                     text=f"{get_size(file.file_size)}",
@@ -95,16 +95,6 @@ async def next_page(bot, query):
                                   callback_data="pages")]
         )
     elif off_set is None:
-        btn.insert(0,
-            [
-                InlineKeyboardButton("Updates", url="https://t.me/Movies_x_store"),
-            ]
-        )
-        btn.insert(1,
-            [
-                InlineKeyboardButton("🍿 Movie Group 🍿", url=GRP_LNK),
-            ]
-        )
         btn.append(
             [InlineKeyboardButton(f"🗓 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
              InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])

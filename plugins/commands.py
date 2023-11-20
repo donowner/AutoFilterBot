@@ -193,7 +193,8 @@ async def start(client, message):
                     logger.exception(e)
                     continue
             await asyncio.sleep(1) 
-        return await sts.delete()
+            await sts.delete()
+        return
         
 
     files_ = await get_file_details(file_id)           
@@ -205,6 +206,8 @@ async def start(client, message):
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,
                 )
+            await asyncio.sleep(300)
+            await msg.delete()
             filetype = msg.media
             file = getattr(msg, filetype)
             title = file.file_name

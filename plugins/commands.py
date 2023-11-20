@@ -128,8 +128,11 @@ async def start(client, message):
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
                     )
+                lun = await jhatu.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\nTʜɪs Mᴏᴠɪᴇ Fɪʟᴇ/Vɪᴅᴇᴏ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ<b> 5 ᴍɪɴs</b>Pʟᴇᴀsᴇ ғᴏʀᴡᴀʀᴅ ᴛʜɪs Fɪʟᴇ/Vɪᴅᴇᴏ ᴛᴏ ʏᴏᴜʀ Sᴀᴠᴇᴅ Mᴇssᴀɢᴇs ᴀɴᴅ Sᴛᴀʀᴛ Dᴏᴡɴʟᴏᴀᴅ ᴛʜᴇʀᴇ",quote=True)
+                seddd=await jhatu.reply ("Yᴏᴜ Cᴀɴ Fᴏʀᴡᴀʀᴅ Tʜɪs Fɪʟᴇ Tᴏ [Fɪʟᴇ Tᴏ Lɪɴᴋ Bᴏᴛ](https://t.me/File_To_Link_share_bot) Fᴏʀ Fᴀsᴛ Dᴏᴡɴʟᴏᴀᴅɪɴɢ Oʀ Oɴʟɪɴᴇ Sᴛʀᴇᴀᴍɪɴɢ")
                 await asyncio.sleep(300)
                 await jhatu.delete()
+                await lun.edit_text("Successfully deleted!!! ")
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
@@ -142,8 +145,11 @@ async def start(client, message):
                     
                     protect_content=msg.get('protect', False),
                     )
-                await asyncio.sleep(10)
+                jun = await lodu.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\nTʜɪs Mᴏᴠɪᴇ Fɪʟᴇ/Vɪᴅᴇᴏ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ<b> 5 ᴍɪɴs</b>Pʟᴇᴀsᴇ ғᴏʀᴡᴀʀᴅ ᴛʜɪs Fɪʟᴇ/Vɪᴅᴇᴏ ᴛᴏ ʏᴏᴜʀ Sᴀᴠᴇᴅ Mᴇssᴀɢᴇs ᴀɴᴅ Sᴛᴀʀᴛ Dᴏᴡɴʟᴏᴀᴅ ᴛʜᴇʀᴇ",quote=True)
+                sedddd=await lodu.reply ("Yᴏᴜ Cᴀɴ Fᴏʀᴡᴀʀᴅ Tʜɪs Fɪʟᴇ Tᴏ [Fɪʟᴇ Tᴏ Lɪɴᴋ Bᴏᴛ](https://t.me/File_To_Link_share_bot) Fᴏʀ Fᴀsᴛ Dᴏᴡɴʟᴏᴀᴅɪɴɢ Oʀ Oɴʟɪɴᴇ Sᴛʀᴇᴀᴍɪɴɢ")
+                await asyncio.sleep(300)
                 await randi.delete()
+                await jun.edit_text("<b>Successfully deleted!!!\n Search Again ")
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue

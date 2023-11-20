@@ -6,7 +6,7 @@ COPY requirements.txt /requirements.txt
 
 RUN cd /
 RUN pip3 install -U pip && pip3 install -U -r requirements.txt
-RUN mkdir /AutoFilterBot
-WORKDIR /AutoFilterBot
+RUN mkdir /AutoFilterBotxd
+WORKDIR /AutoFilterBotxd
 COPY start.sh /start.sh
 CMD ["/bin/bash", "/start.sh"]

@@ -403,7 +403,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.exception(e)
                 f_caption = f_caption
         if f_caption is None:
-            f_caption = f"{title}"
+            f_caption = f"{files.file_name}"
         await query.answer()
         loda=await client.send_cached_media(
             chat_id=query.from_user.id,

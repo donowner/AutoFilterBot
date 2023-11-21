@@ -42,12 +42,9 @@ class Bot(Client):
         self.username = '@' + me.username
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        PORT="8080"
-        bind_address = "0.0.0.0"
-        await web.TCPSite(app, bind_address, PORT).start()
 
+
+    
     async def stop(self, *args):
         await super().stop()
         logging.info("Bot stopped. Bye.")

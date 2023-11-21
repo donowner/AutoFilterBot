@@ -35,7 +35,7 @@ async def give_filter(client, message):
     if k == False:
         nani=await auto_filter(client, message)
         await asyncio.sleep(6)
-        await msg.delete()
+        await nani.delete()
 
 
 @Client.on_callback_query(filters.regex(r"^next"))

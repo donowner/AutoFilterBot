@@ -371,7 +371,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 sedd=await lodu.reply ("Yᴏᴜ Cᴀɴ Fᴏʀᴡᴀʀᴅ Tʜɪs Fɪʟᴇ Tᴏ [Fɪʟᴇ Tᴏ Lɪɴᴋ Bᴏᴛ](https://t.me/File_To_Link_share_bot) Fᴏʀ Fᴀsᴛ Dᴏᴡɴʟᴏᴀᴅɪɴɢ Oʀ Oɴʟɪɴᴇ Sᴛʀᴇᴀᴍɪɴɢ")
                 await asyncio.sleep(300)
                 await lodu.delete()
-                await kun.edit_text("<b>Successfully deleted!!!\n Search Again ")
+                await sedd.delete()
+                await kun.edit_text("<b>Successfully deleted From Here !!!\n [Click here](https://t.me/{temp.U_NAME}?start=files_{file.file_id})if you want again ")
+                await asyncio.sleep(1000)
+                await kun.delete()
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
@@ -412,7 +415,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         sedd=await loda.reply ("Yᴏᴜ Cᴀɴ Fᴏʀᴡᴀʀᴅ Tʜɪs Fɪʟᴇ Tᴏ [Fɪʟᴇ Tᴏ Lɪɴᴋ Bᴏᴛ](https://t.me/File_To_Link_share_bot) Fᴏʀ Fᴀsᴛ Dᴏᴡɴʟᴏᴀᴅɪɴɢ Oʀ Oɴʟɪɴᴇ Sᴛʀᴇᴀᴍɪɴɢ")
         await asyncio.sleep(300)
         await loda.delete()
-        await tun.edit_text("<b>Successfully deleted!!!\n If you Want Search Again ")
+        await sedd.delete()
+        await tun.edit_text("<b>Successfully deleted From Here !!!\n [Click here](https://t.me/{temp.U_NAME}?start=files_{file.file_id})if you want again ")
+        await asyncio.sleep(1000)
+        await tun.delete()
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
@@ -728,12 +734,18 @@ async def auto_filter(client, msg, spoll=False):
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            sid=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(240)
+            await sid.delete()
         except Exception as e:
             logger.exception(e)
-            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            vivek=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(240)
+            await vivek.delete()
     else:
-        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        siddhant=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        await asyncio.sleep(240)
+        await siddhant.delete()
     if spoll:
         await msg.message.delete()
 

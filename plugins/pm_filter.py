@@ -372,7 +372,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await asyncio.sleep(300)
                 await lodu.delete()
                 await sedd.delete()
-                await kun.edit_text("<b>Successfully deleted From Here !!!\n [Click here](https://t.me/{temp.U_NAME}?start=files_{file.file_id})if you want again ")
+                await kun.edit_text("<b>Successfully deleted From Here !!!\n you should forward that in your save message")
                 await asyncio.sleep(1000)
                 await kun.delete()
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
@@ -416,7 +416,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await asyncio.sleep(300)
         await loda.delete()
         await sedd.delete()
-        await tun.edit_text("<b>Successfully deleted From Here !!!\n [Click here](https://t.me/{temp.U_NAME}?start=files_{file.file_id})if you want again ")
+        await tun.edit_text("<b>Successfully deleted From Here !!!\n You should forward that file to your save message  ")
         await asyncio.sleep(1000)
         await tun.delete()
     elif query.data == "pages":
